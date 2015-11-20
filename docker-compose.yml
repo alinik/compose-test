@@ -1,0 +1,13 @@
+web:
+  build: apps/.
+  ports:
+   - "8000"
+#  volumes:
+#   - apps/.:/code
+  links:
+   - redis
+redis:
+  build: redis/.
+#  ports:
+#   - "6379"
+#   - "6379:6379"
