@@ -6,5 +6,5 @@ ADD . /code
 COPY ./wheelhouse /code/wheelhouse
 WORKDIR /code
 RUN pip install wheelhouse/*
-CMD uwsgi --http 0.0.0.0:8000  --module app:app
-EXPOSE 8000
+CMD uwsgi --http 0.0.0.0:80  --module app:app
+EXPOSE 80

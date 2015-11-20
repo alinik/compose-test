@@ -1,7 +1,7 @@
 web:
   build: apps/.
-  ports:
-   - "8000"
+# ports:
+#  - "8000"
 #  volumes:
 #   - apps/.:/code
   links:
@@ -11,3 +11,15 @@ redis:
 #  ports:
 #   - "6379"
 #   - "6379:6379"
+
+haproxy:
+    image: haproxy
+    links:
+
+        - web
+    ports:
+        - "80"
+        - "1936:1936"
+    environment:
+        - STATS_PORT:1936
+        - STATS_AUTH:"stats:stats"
